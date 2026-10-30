@@ -1,0 +1,27 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "snake-ai-lab"
+version = "0.1.0"
+description = "A Snake game environment for Deep Q-Network experiments"
+requires-python = ">=3.11"
+dependencies = ["numpy>=1.26,<3"]
+
+[project.scripts]
+snake-ai-lab = "snake_ai_lab.game.app:main"
+
+[project.optional-dependencies]
+dev = ["pytest>=8,<9"]
+game = ["pygame>=2.5,<3"]
+rl = ["torch>=2.2"]
+all = ["torch>=2.2", "pygame>=2.5,<3", "matplotlib>=3.8"]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]
+addopts = "-q"

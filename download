@@ -1,0 +1,19 @@
+# Python
+.venv/
+__pycache__/
+.pytest_cache/
+*.py[cod]
+*.egg-info/
+
+# Generated training logs
+logs/
+
+# Ignore generated checkpoints except the bundled demo model
+models/checkpoints/*
+!models/checkpoints/dqn_snake.pt
+
+# Editor / OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
