@@ -1,0 +1,30 @@
+# Virtual environments
+.venv*/
+venv/
+env/
+ENV/
+
+# Python cache and bytecode
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Editor / OS files
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Build / dist artifacts
+build/
+dist/
+*.egg-info/
+
+# Generated project output
+# results/ is kept (plots, tables, final.pt models: ~9 MB) so the repo works without retraining.
+results_quick/
+*.log

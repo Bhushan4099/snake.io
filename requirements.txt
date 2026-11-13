@@ -1,0 +1,6 @@
+# CPU-only PyTorch: see README "Setup" (install torch first, using the CPU wheel index)
+torch>=2.2
+numpy>=1.26
+pygame>=2.5
+matplotlib>=3.8
+pytest>=8.0

@@ -1,0 +1,103 @@
+{
+  "meta": {
+    "seeds": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "n_seeds": 5,
+    "episodes": 500,
+    "n_eval": 100,
+    "eval_seed_base": 1000000,
+    "hyperparameters": {
+      "episodes": 500,
+      "gamma": 0.95,
+      "lr": 0.001,
+      "batch_size": 64,
+      "buffer_size": 50000,
+      "learn_start": 1000,
+      "target_sync_steps": 500,
+      "eps_start": 1.0,
+      "eps_end": 0.01,
+      "eps_decay": 0.99,
+      "hidden": 128,
+      "grad_clip": 10.0,
+      "ckpt_every": 50
+    },
+    "timing": {},
+    "grid": [
+      12,
+      12
+    ]
+  },
+  "aggregate": {
+    "dqn": {
+      "seeds": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "seed_means": [
+        22.38,
+        21.55,
+        22.16,
+        21.69,
+        20.5
+      ],
+      "mean_of_seed_means": 21.656,
+      "std_across_seeds": 0.7291981897947908,
+      "min_seed_mean": 20.5,
+      "max_seed_mean": 22.38,
+      "pooled_max_score": 46,
+      "n_eval_episodes_per_seed": 100
+    },
+    "double": {
+      "seeds": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "seed_means": [
+        20.78,
+        19.88,
+        20.13,
+        21.17,
+        20.82
+      ],
+      "mean_of_seed_means": 20.556,
+      "std_across_seeds": 0.5327569802452158,
+      "min_seed_mean": 19.88,
+      "max_seed_mean": 21.17,
+      "pooled_max_score": 48,
+      "n_eval_episodes_per_seed": 100
+    },
+    "random": {
+      "seeds": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "seed_means": [
+        0.14,
+        0.08,
+        0.23,
+        0.16,
+        0.13
+      ],
+      "mean_of_seed_means": 0.14800000000000002,
+      "std_across_seeds": 0.05449770637375485,
+      "min_seed_mean": 0.08,
+      "max_seed_mean": 0.23,
+      "pooled_max_score": 2,
+      "n_eval_episodes_per_seed": 100
+    }
+  }
+}
