@@ -22,6 +22,9 @@ def main(argv=None):
     a = p.parse_args(argv)
     if a.quick:
         n_seeds, episodes, n_eval, ck, out, readme = a.seeds or 2, a.episodes or 60, a.eval_episodes or 20, 20, a.out or "results_quick", None
+        # Never let a smoke run overwrite the reported full-run results.
+        if os.path.abspath(out) == os.path.abspath("results"):
+            p.error("--quick must not write to results/ (it holds the reported full-run results); use another --out")
     else:
         n_seeds, episodes, n_eval, ck, out = a.seeds or 3, a.episodes or 500, a.eval_episodes or 100, 50, a.out or "results"
         readme = "README.md"

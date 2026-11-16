@@ -51,3 +51,18 @@ A separate reviewer was started and stopped before changing anything; the lead d
 - Docs scanned for overclaims: no claim that Double DQN is better, no optimal-play claim, ESP32 listed only as future work, rebuild-from-spec note present.
 - Clean copy on Python 3.12.3 (fresh venv from requirements.txt): 35 tests passed.
 - NOT done in this pass (the full reviewer brief covered these): checking each of the 19 features against hand-built boards, line-by-line audit of viva answers, real-display interaction on Windows.
+
+## One-command run + README rewrite (2026-11-16)
+- New `run.bat` / `run.ps1` (Windows) and rewritten `run_all.sh` (Linux/WSL2/macOS): create/reuse a Python 3.12 venv
+  (`.venv312` / `.venv`), install requirements only if missing (CPU torch first), run pytest, then run the pipeline.
+  `-Quick` / `--quick` = 2 seeds x 2 variants x 60 episodes, 20 eval games, output to `results_quick/` only.
+  `-UI` / `--ui` opens the Pygame menu. Full mode passes `--seeds 5` (the reported protocol) and overwrites `results/`.
+- `run_all.py --quick` now refuses `--out results`, so a smoke run cannot overwrite the reported results.
+- Verified on Windows 11: `run.bat -Quick` with the existing venv: 35 tests passed, pipeline 37 s, 91 s total; MD5 of all
+  134 files in `results/` and of README.md unchanged afterwards. Fresh clone into a temp dir with no venv: `run.bat -Quick` created .venv312 via `py -3.12`, installed deps (pip cache warm), 35 passed, pipeline 63 s, 299 s total.
+  `run.bat -UI` launched the menu (process stayed up; closed by hand).
+- README rewritten: quick start, features, structure, Windows/Linux setup (Python 3.12 required), commands, results
+  (unchanged block from `results/`), caveats (Double DQN did not beat DQN; no significance test), tests, limitations.
+  Outdated "UI not visually verified" line removed (resolved 2026-11-13).
+- Full mode was NOT re-run in this session.
+
